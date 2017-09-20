@@ -1,0 +1,6 @@
+train1=2000
+train2=3000
+train3=4000
+
+staation=100
+station2=101
