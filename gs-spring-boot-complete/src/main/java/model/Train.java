@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Train {
 	public String trainId="17236" ;
 	public String trainName="Chennai Mail";
@@ -18,6 +21,14 @@ public class Train {
 		this.schedule = schedule;
 		this.traintype = traintype;
 	}
+    
+    public List<Train> getTrainsList(){
+    	List<Train> trains = new ArrayList<Train>();
+    	trains.add(new Train("1", "Bangalore Express", "9.00 AM", "3.00 PM", null, "Express"));
+    	trains.add(new Train("2", "Chennai Express", "10.00 AM", "20 Sep 2017 2.00 PM", null, "Shatabdi"));
+    	trains.add(new Train("3", "Hyderabad Express", "1.00 AM", "7.00 PM", null, "Passenger"));
+    	return trains;
+    }
     
 	public String getTrainId() {
 		return trainId;

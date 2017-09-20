@@ -5,28 +5,37 @@ import org.springframework.web.bind.annotation.RestController;
 import model.Station;
 import model.Train;
 
-import java.awt.List;
 import java.util.ArrayList;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 public class TrainController {
-    
+	
+	public static ArrayList<Train> trains = new ArrayList<Train>();
+	public static ArrayList<Station> stations = new ArrayList<Station>();	
+	
     @RequestMapping("/trains")
-    public ArrayList<Train> getTrains() {
-        
-    	ArrayList<Train> trains = new ArrayList<Train>();
-    	trains.add(new Train("1", "Bangalore Express", "9.00 AM", "3.00 PM", null, "Express"));
-    	trains.add(new Train("2", "Chennai Express", "10.00 AM", "20 Sep 2017 2.00 PM", null, "Shatabdi"));
-    	trains.add(new Train("3", "Hyderabad Express", "1.00 AM", "7.00 PM", null, "Passenger"));
-    	return trains;
+    public ArrayList<Train> getTrains() {      	
+    	return getTrainsList();
+    }
+    
+    @RequestMapping("/trains/{trainID}")
+    public Train getTrain(@PathVariable	 String trainID) {
+    	System.out.println("Train ID" + trainID);
+    	ArrayList<Train> trains= getTrainsList();
+		for(Train train : trains){
+    		if(train.trainId.contains(trainID)){
+    			return train;
+    		}
+    	}    
+    	return null;
     }
     
     @RequestMapping("/stations")
     public ArrayList<Station> getStations() {
-        
-    	ArrayList<Station> stations = new ArrayList<Station>();
     	stations.add(new Station(1, "Bangalore"));
     	stations.add(new Station(2, "Chennai"));
     	stations.add(new Station(3, "Hyderabad"));
