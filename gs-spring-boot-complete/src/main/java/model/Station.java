@@ -14,7 +14,13 @@ public class Station {
     private int id =1;
     private String name = "Train1";
 
-    public int getId() {
+    public Station(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	public int getId() {
         return id;
     }
 

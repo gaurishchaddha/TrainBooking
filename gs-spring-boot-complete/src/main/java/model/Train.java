@@ -1,30 +1,47 @@
 package model;
 
 public class Train {
-	public static String trainId="1234" ;
-    public static String getTrainId() {
+	public String trainId="17236" ;
+	public String trainName="Chennai Mail";
+    public String start="20 Sep 2017 9.00 AM";
+    public String end="20 Sep 2017 3.00 PM";
+    public Schedule schedule= null;
+    public String traintype="Express";    
+	
+    
+    public Train(String trainId, String trainName, String start, String end, Schedule schedule, String traintype) {
+		super();
+		this.trainId = trainId;
+		this.trainName = trainName;
+		this.start = start;
+		this.end = end;
+		this.schedule = schedule;
+		this.traintype = traintype;
+	}
+    
+	public String getTrainId() {
 		return trainId;
 	}
-	public static void setTrainId(String trainId) {
-		Train.trainId = trainId;
+	public void setTrainId(String trainId) {
+		this.trainId = trainId;
 	}
-	public static String getTrainName() {
+	public String getTrainName() {
 		return trainName;
 	}
-	public static void setTrainName(String trainName) {
-		Train.trainName = trainName;
+	public void setTrainName(String trainName) {
+		this.trainName = trainName;
 	}
-	public static String getStart() {
+	public  String getStart() {
 		return start;
 	}
-	public static void setStart(String start) {
-		Train.start = start;
+	public  void setStart(String start) {
+		this.start = start;
 	}
-	public static String getEnd() {
+	public  String getEnd() {
 		return end;
 	}
-	public static void setEnd(String end) {
-		Train.end = end;
+	public  void setEnd(String end) {
+		this.end = end;
 	}
 	public Schedule getSchedule() {
 		return schedule;
@@ -32,23 +49,10 @@ public class Train {
 	public void setSchedule(Schedule schedule) {
 		this.schedule = schedule;
 	}
-	public static String getTraintype() {
-		return traintype;
+	public  String getTraintype() {
+		return this.traintype;
 	}
-	public static void setTraintype(String traintype) {
-		Train.traintype = traintype;
+	public  void setTraintype(String traintype) {
+		this.traintype = traintype;
 	}
-	public static int getNumseates() {
-		return numseates;
-	}
-	public static void setNumseates(int numseates) {
-		Train.numseates = numseates;
-	}
-	public static String trainName="123456";
-    public static String start="123456";
-    public static String end="123456";
-    public Schedule schedule= null;
-    public static String traintype="";
-    public static int numseates= 100;
-    
 }
