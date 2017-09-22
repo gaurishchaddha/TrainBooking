@@ -5,34 +5,23 @@ import org.springframework.web.bind.annotation.RestController;
 import model.Station;
 import model.Train;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import service.TrainServiceImpl;
 
 @RestController
 public class TrainController {
 
     @GetMapping("/trains")
     public ArrayList<Train> getTrains() throws SQLException {
-        return Train.selectAll();
+        return TrainServiceImpl.getTrains();
     }
 
     @GetMapping("/trains/{trainId}")
     public Train getTrain(@PathVariable String trainId) throws SQLException {
-        return Train.getTrainByTrainId(trainId);
+        return TrainServiceImpl.getTrainByTrainId(trainId);
     }
 
     @GetMapping("/stations")

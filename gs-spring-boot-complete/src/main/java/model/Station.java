@@ -26,37 +26,6 @@ public class Station {
         this.stationName = stationName;
     }
 
-    public static ArrayList<Station> selectAll() {
-        ArrayList<Station> stations = new ArrayList<Station>();
-
-        try (Connection conn = DBConnect.connect();
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT [stationId] ,[stationName] FROM Station");) {
-            // loop through the result set
-            while (rs.next()) {
-                stations.add(new Station(rs.getInt("stationId"), rs.getString("stationName")));
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return stations;
-    }
-
-    public static Station getStationByStationId(int stationId) {
-        Station station = null;        
-        
-        try (Connection conn = DBConnect.connect();
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT [stationId] ,[stationName] FROM Station WHERE stationId = " + stationId);) {
-            while (rs.next()) {
-                station = new Station(rs.getInt("stationId"), rs.getString("stationName"));
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return station;
-    }
-
     public int getStationId() {
         return stationId;
     }
